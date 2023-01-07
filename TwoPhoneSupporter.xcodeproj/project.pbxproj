@@ -1,0 +1,729 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41D94A3B2A08CA4B1FC57830 /* Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6423EDC918C4912E388D193 /* Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework */; };
+		8C8F089C29A6D570F77CB883 /* Pods_TwoPhoneSupporterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9838906DC310A0398057EF2 /* Pods_TwoPhoneSupporterTests.framework */; };
+		B20B22CD6DAC6C1A3FD40FBA /* Pods_TwoPhoneSupporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B0D92205952B37A26F1016 /* Pods_TwoPhoneSupporter.framework */; };
+		EE517CDB2963015E00E909A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CDA2963015E00E909A7 /* AppDelegate.swift */; };
+		EE517CDD2963015E00E909A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CDC2963015E00E909A7 /* SceneDelegate.swift */; };
+		EE517CDF2963015E00E909A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CDE2963015E00E909A7 /* ViewController.swift */; };
+		EE517CE22963015E00E909A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE517CE02963015E00E909A7 /* Main.storyboard */; };
+		EE517CE42963016300E909A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE517CE32963016300E909A7 /* Assets.xcassets */; };
+		EE517CE72963016300E909A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE517CE52963016300E909A7 /* LaunchScreen.storyboard */; };
+		EE517CF22963016300E909A7 /* TwoPhoneSupporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CF12963016300E909A7 /* TwoPhoneSupporterTests.swift */; };
+		EE517CFC2963016300E909A7 /* TwoPhoneSupporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CFB2963016300E909A7 /* TwoPhoneSupporterUITests.swift */; };
+		EE517CFE2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CFD2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE517CEE2963016300E909A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE517CCF2963015E00E909A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE517CD62963015E00E909A7;
+			remoteInfo = TwoPhoneSupporter;
+		};
+		EE517CF82963016300E909A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE517CCF2963015E00E909A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE517CD62963015E00E909A7;
+			remoteInfo = TwoPhoneSupporter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		67B5B23D880D4813BAF83D17 /* Pods-TwoPhoneSupporterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwoPhoneSupporterTests.debug.xcconfig"; path = "Target Support Files/Pods-TwoPhoneSupporterTests/Pods-TwoPhoneSupporterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		75A9BD5FB9CFC70ACE069974 /* Pods-TwoPhoneSupporter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwoPhoneSupporter.debug.xcconfig"; path = "Target Support Files/Pods-TwoPhoneSupporter/Pods-TwoPhoneSupporter.debug.xcconfig"; sourceTree = "<group>"; };
+		833AA15753D6A77781280935 /* Pods-TwoPhoneSupporterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwoPhoneSupporterTests.release.xcconfig"; path = "Target Support Files/Pods-TwoPhoneSupporterTests/Pods-TwoPhoneSupporterTests.release.xcconfig"; sourceTree = "<group>"; };
+		A83568C50E65AA5DD29FE055 /* Pods-TwoPhoneSupporter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwoPhoneSupporter.release.xcconfig"; path = "Target Support Files/Pods-TwoPhoneSupporter/Pods-TwoPhoneSupporter.release.xcconfig"; sourceTree = "<group>"; };
+		C6041B9FEDB9004FDFAC84C6 /* Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.release.xcconfig"; path = "Target Support Files/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C6423EDC918C4912E388D193 /* Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6B0D92205952B37A26F1016 /* Pods_TwoPhoneSupporter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwoPhoneSupporter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D77AE6A61233C51B31569B2C /* Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.debug.xcconfig"; path = "Target Support Files/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9838906DC310A0398057EF2 /* Pods_TwoPhoneSupporterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwoPhoneSupporterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE517CD72963015E00E909A7 /* TwoPhoneSupporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoPhoneSupporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE517CDA2963015E00E909A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE517CDC2963015E00E909A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EE517CDE2963015E00E909A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE517CE12963015E00E909A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE517CE32963016300E909A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE517CE62963016300E909A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EE517CE82963016300E909A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE517CED2963016300E909A7 /* TwoPhoneSupporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwoPhoneSupporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE517CF12963016300E909A7 /* TwoPhoneSupporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPhoneSupporterTests.swift; sourceTree = "<group>"; };
+		EE517CF72963016300E909A7 /* TwoPhoneSupporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwoPhoneSupporterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE517CFB2963016300E909A7 /* TwoPhoneSupporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPhoneSupporterUITests.swift; sourceTree = "<group>"; };
+		EE517CFD2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPhoneSupporterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EE517D0A2963041800E909A7 /* TwoPhoneSupporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwoPhoneSupporter.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE517CD42963015E00E909A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20B22CD6DAC6C1A3FD40FBA /* Pods_TwoPhoneSupporter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE517CEA2963016300E909A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C8F089C29A6D570F77CB883 /* Pods_TwoPhoneSupporterTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE517CF42963016300E909A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D94A3B2A08CA4B1FC57830 /* Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		051F343A2A87044071D46F02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6B0D92205952B37A26F1016 /* Pods_TwoPhoneSupporter.framework */,
+				C6423EDC918C4912E388D193 /* Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework */,
+				D9838906DC310A0398057EF2 /* Pods_TwoPhoneSupporterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20BDC813FE9CE1F6E7533CA3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75A9BD5FB9CFC70ACE069974 /* Pods-TwoPhoneSupporter.debug.xcconfig */,
+				A83568C50E65AA5DD29FE055 /* Pods-TwoPhoneSupporter.release.xcconfig */,
+				D77AE6A61233C51B31569B2C /* Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.debug.xcconfig */,
+				C6041B9FEDB9004FDFAC84C6 /* Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.release.xcconfig */,
+				67B5B23D880D4813BAF83D17 /* Pods-TwoPhoneSupporterTests.debug.xcconfig */,
+				833AA15753D6A77781280935 /* Pods-TwoPhoneSupporterTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EE517CCE2963015E00E909A7 = {
+			isa = PBXGroup;
+			children = (
+				EE517CD92963015E00E909A7 /* TwoPhoneSupporter */,
+				EE517CF02963016300E909A7 /* TwoPhoneSupporterTests */,
+				EE517CFA2963016300E909A7 /* TwoPhoneSupporterUITests */,
+				EE517CD82963015E00E909A7 /* Products */,
+				20BDC813FE9CE1F6E7533CA3 /* Pods */,
+				051F343A2A87044071D46F02 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EE517CD82963015E00E909A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE517CD72963015E00E909A7 /* TwoPhoneSupporter.app */,
+				EE517CED2963016300E909A7 /* TwoPhoneSupporterTests.xctest */,
+				EE517CF72963016300E909A7 /* TwoPhoneSupporterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE517CD92963015E00E909A7 /* TwoPhoneSupporter */ = {
+			isa = PBXGroup;
+			children = (
+				EE517D0A2963041800E909A7 /* TwoPhoneSupporter.entitlements */,
+				EE517CDA2963015E00E909A7 /* AppDelegate.swift */,
+				EE517CDC2963015E00E909A7 /* SceneDelegate.swift */,
+				EE517CDE2963015E00E909A7 /* ViewController.swift */,
+				EE517CE02963015E00E909A7 /* Main.storyboard */,
+				EE517CE32963016300E909A7 /* Assets.xcassets */,
+				EE517CE52963016300E909A7 /* LaunchScreen.storyboard */,
+				EE517CE82963016300E909A7 /* Info.plist */,
+			);
+			path = TwoPhoneSupporter;
+			sourceTree = "<group>";
+		};
+		EE517CF02963016300E909A7 /* TwoPhoneSupporterTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE517CF12963016300E909A7 /* TwoPhoneSupporterTests.swift */,
+			);
+			path = TwoPhoneSupporterTests;
+			sourceTree = "<group>";
+		};
+		EE517CFA2963016300E909A7 /* TwoPhoneSupporterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EE517CFB2963016300E909A7 /* TwoPhoneSupporterUITests.swift */,
+				EE517CFD2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift */,
+			);
+			path = TwoPhoneSupporterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE517CD62963015E00E909A7 /* TwoPhoneSupporter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE517D012963016300E909A7 /* Build configuration list for PBXNativeTarget "TwoPhoneSupporter" */;
+			buildPhases = (
+				12C30FA38417AB81AE1E382F /* [CP] Check Pods Manifest.lock */,
+				EE517CD32963015E00E909A7 /* Sources */,
+				EE517CD42963015E00E909A7 /* Frameworks */,
+				EE517CD52963015E00E909A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwoPhoneSupporter;
+			productName = TwoPhoneSupporter;
+			productReference = EE517CD72963015E00E909A7 /* TwoPhoneSupporter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE517CEC2963016300E909A7 /* TwoPhoneSupporterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE517D042963016300E909A7 /* Build configuration list for PBXNativeTarget "TwoPhoneSupporterTests" */;
+			buildPhases = (
+				71255EB037F08EDD00A52AF6 /* [CP] Check Pods Manifest.lock */,
+				EE517CE92963016300E909A7 /* Sources */,
+				EE517CEA2963016300E909A7 /* Frameworks */,
+				EE517CEB2963016300E909A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE517CEF2963016300E909A7 /* PBXTargetDependency */,
+			);
+			name = TwoPhoneSupporterTests;
+			productName = TwoPhoneSupporterTests;
+			productReference = EE517CED2963016300E909A7 /* TwoPhoneSupporterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE517CF62963016300E909A7 /* TwoPhoneSupporterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE517D072963016300E909A7 /* Build configuration list for PBXNativeTarget "TwoPhoneSupporterUITests" */;
+			buildPhases = (
+				7CFE5FC0EC661A5611EEA45C /* [CP] Check Pods Manifest.lock */,
+				EE517CF32963016300E909A7 /* Sources */,
+				EE517CF42963016300E909A7 /* Frameworks */,
+				EE517CF52963016300E909A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE517CF92963016300E909A7 /* PBXTargetDependency */,
+			);
+			name = TwoPhoneSupporterUITests;
+			productName = TwoPhoneSupporterUITests;
+			productReference = EE517CF72963016300E909A7 /* TwoPhoneSupporterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE517CCF2963015E00E909A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					EE517CD62963015E00E909A7 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					EE517CEC2963016300E909A7 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = EE517CD62963015E00E909A7;
+					};
+					EE517CF62963016300E909A7 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = EE517CD62963015E00E909A7;
+					};
+				};
+			};
+			buildConfigurationList = EE517CD22963015E00E909A7 /* Build configuration list for PBXProject "TwoPhoneSupporter" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE517CCE2963015E00E909A7;
+			productRefGroup = EE517CD82963015E00E909A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE517CD62963015E00E909A7 /* TwoPhoneSupporter */,
+				EE517CEC2963016300E909A7 /* TwoPhoneSupporterTests */,
+				EE517CF62963016300E909A7 /* TwoPhoneSupporterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE517CD52963015E00E909A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE517CE72963016300E909A7 /* LaunchScreen.storyboard in Resources */,
+				EE517CE42963016300E909A7 /* Assets.xcassets in Resources */,
+				EE517CE22963015E00E909A7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE517CEB2963016300E909A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE517CF52963016300E909A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12C30FA38417AB81AE1E382F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TwoPhoneSupporter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71255EB037F08EDD00A52AF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TwoPhoneSupporterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CFE5FC0EC661A5611EEA45C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE517CD32963015E00E909A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE517CDF2963015E00E909A7 /* ViewController.swift in Sources */,
+				EE517CDB2963015E00E909A7 /* AppDelegate.swift in Sources */,
+				EE517CDD2963015E00E909A7 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE517CE92963016300E909A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE517CF22963016300E909A7 /* TwoPhoneSupporterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE517CF32963016300E909A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE517CFC2963016300E909A7 /* TwoPhoneSupporterUITests.swift in Sources */,
+				EE517CFE2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE517CEF2963016300E909A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE517CD62963015E00E909A7 /* TwoPhoneSupporter */;
+			targetProxy = EE517CEE2963016300E909A7 /* PBXContainerItemProxy */;
+		};
+		EE517CF92963016300E909A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE517CD62963015E00E909A7 /* TwoPhoneSupporter */;
+			targetProxy = EE517CF82963016300E909A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE517CE02963015E00E909A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE517CE12963015E00E909A7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EE517CE52963016300E909A7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE517CE62963016300E909A7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE517CFF2963016300E909A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE517D002963016300E909A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE517D022963016300E909A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75A9BD5FB9CFC70ACE069974 /* Pods-TwoPhoneSupporter.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TwoPhoneSupporter/TwoPhoneSupporter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B56B7YRWDS;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TwoPhoneSupporter/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rouddy.TwoPhoneSupporter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE517D032963016300E909A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A83568C50E65AA5DD29FE055 /* Pods-TwoPhoneSupporter.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TwoPhoneSupporter/TwoPhoneSupporter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B56B7YRWDS;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TwoPhoneSupporter/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rouddy.TwoPhoneSupporter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EE517D052963016300E909A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67B5B23D880D4813BAF83D17 /* Pods-TwoPhoneSupporterTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B56B7YRWDS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rouddy.TwoPhoneSupporterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwoPhoneSupporter.app/TwoPhoneSupporter";
+			};
+			name = Debug;
+		};
+		EE517D062963016300E909A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 833AA15753D6A77781280935 /* Pods-TwoPhoneSupporterTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B56B7YRWDS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rouddy.TwoPhoneSupporterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwoPhoneSupporter.app/TwoPhoneSupporter";
+			};
+			name = Release;
+		};
+		EE517D082963016300E909A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D77AE6A61233C51B31569B2C /* Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B56B7YRWDS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rouddy.TwoPhoneSupporterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TwoPhoneSupporter;
+			};
+			name = Debug;
+		};
+		EE517D092963016300E909A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6041B9FEDB9004FDFAC84C6 /* Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B56B7YRWDS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rouddy.TwoPhoneSupporterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TwoPhoneSupporter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE517CD22963015E00E909A7 /* Build configuration list for PBXProject "TwoPhoneSupporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE517CFF2963016300E909A7 /* Debug */,
+				EE517D002963016300E909A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE517D012963016300E909A7 /* Build configuration list for PBXNativeTarget "TwoPhoneSupporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE517D022963016300E909A7 /* Debug */,
+				EE517D032963016300E909A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE517D042963016300E909A7 /* Build configuration list for PBXNativeTarget "TwoPhoneSupporterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE517D052963016300E909A7 /* Debug */,
+				EE517D062963016300E909A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE517D072963016300E909A7 /* Build configuration list for PBXNativeTarget "TwoPhoneSupporterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE517D082963016300E909A7 /* Debug */,
+				EE517D092963016300E909A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE517CCF2963015E00E909A7 /* Project object */;
+}
