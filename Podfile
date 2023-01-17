@@ -6,6 +6,7 @@ target 'TwoPhoneSupporter' do
   use_frameworks!
 
   # Pods for TwoPhoneSupporter
+  pod 'AlgorigoBleLibrary', '~> 0.2'
 
   target 'TwoPhoneSupporterTests' do
     inherit! :search_paths

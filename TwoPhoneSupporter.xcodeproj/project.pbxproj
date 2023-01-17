@@ -10,15 +10,20 @@
 		41D94A3B2A08CA4B1FC57830 /* Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6423EDC918C4912E388D193 /* Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework */; };
 		8C8F089C29A6D570F77CB883 /* Pods_TwoPhoneSupporterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9838906DC310A0398057EF2 /* Pods_TwoPhoneSupporterTests.framework */; };
 		B20B22CD6DAC6C1A3FD40FBA /* Pods_TwoPhoneSupporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B0D92205952B37A26F1016 /* Pods_TwoPhoneSupporter.framework */; };
+		EE09E031296D831A007AE893 /* DeviceTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09E030296D831A007AE893 /* DeviceTableVIewCell.swift */; };
 		EE517CDB2963015E00E909A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CDA2963015E00E909A7 /* AppDelegate.swift */; };
 		EE517CDD2963015E00E909A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CDC2963015E00E909A7 /* SceneDelegate.swift */; };
-		EE517CDF2963015E00E909A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CDE2963015E00E909A7 /* ViewController.swift */; };
+		EE517CDF2963015E00E909A7 /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CDE2963015E00E909A7 /* CentralViewController.swift */; };
 		EE517CE22963015E00E909A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE517CE02963015E00E909A7 /* Main.storyboard */; };
 		EE517CE42963016300E909A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE517CE32963016300E909A7 /* Assets.xcassets */; };
 		EE517CE72963016300E909A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE517CE52963016300E909A7 /* LaunchScreen.storyboard */; };
 		EE517CF22963016300E909A7 /* TwoPhoneSupporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CF12963016300E909A7 /* TwoPhoneSupporterTests.swift */; };
 		EE517CFC2963016300E909A7 /* TwoPhoneSupporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CFB2963016300E909A7 /* TwoPhoneSupporterUITests.swift */; };
 		EE517CFE2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CFD2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift */; };
+		EEA22E6629756681003267EF /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA22E6529756681003267EF /* CreditViewController.swift */; };
+		EEABCF972973E4BF005AD978 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEABCF962973E4BF005AD978 /* MainViewController.swift */; };
+		EEABCF992973E9E5005AD978 /* credit.html in Resources */ = {isa = PBXBuildFile; fileRef = EEABCF982973E9E5005AD978 /* credit.html */; };
+		EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF494F2975F83A00E664D7 /* Array+unique.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,10 +53,11 @@
 		C6B0D92205952B37A26F1016 /* Pods_TwoPhoneSupporter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwoPhoneSupporter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77AE6A61233C51B31569B2C /* Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.debug.xcconfig"; path = "Target Support Files/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9838906DC310A0398057EF2 /* Pods_TwoPhoneSupporterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwoPhoneSupporterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE09E030296D831A007AE893 /* DeviceTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableVIewCell.swift; sourceTree = "<group>"; };
 		EE517CD72963015E00E909A7 /* TwoPhoneSupporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoPhoneSupporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE517CDA2963015E00E909A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE517CDC2963015E00E909A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EE517CDE2963015E00E909A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE517CDE2963015E00E909A7 /* CentralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
 		EE517CE12963015E00E909A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE517CE32963016300E909A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE517CE62963016300E909A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +68,11 @@
 		EE517CFB2963016300E909A7 /* TwoPhoneSupporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPhoneSupporterUITests.swift; sourceTree = "<group>"; };
 		EE517CFD2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPhoneSupporterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EE517D0A2963041800E909A7 /* TwoPhoneSupporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwoPhoneSupporter.entitlements; sourceTree = "<group>"; };
+		EEA22E6529756681003267EF /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
+		EEABCF962973E4BF005AD978 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EEABCF982973E9E5005AD978 /* credit.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = credit.html; sourceTree = "<group>"; };
+		EEFF494C297581F000E664D7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		EEFF494F2975F83A00E664D7 /* Array+unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+unique.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +106,7 @@
 		051F343A2A87044071D46F02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EEFF494C297581F000E664D7 /* WebKit.framework */,
 				C6B0D92205952B37A26F1016 /* Pods_TwoPhoneSupporter.framework */,
 				C6423EDC918C4912E388D193 /* Pods_TwoPhoneSupporter_TwoPhoneSupporterUITests.framework */,
 				D9838906DC310A0398057EF2 /* Pods_TwoPhoneSupporterTests.framework */,
@@ -140,14 +152,17 @@
 		EE517CD92963015E00E909A7 /* TwoPhoneSupporter */ = {
 			isa = PBXGroup;
 			children = (
+				EEFF494E2975F82600E664D7 /* util */,
+				EEABCF952973E498005AD978 /* ui */,
 				EE517D0A2963041800E909A7 /* TwoPhoneSupporter.entitlements */,
 				EE517CDA2963015E00E909A7 /* AppDelegate.swift */,
 				EE517CDC2963015E00E909A7 /* SceneDelegate.swift */,
-				EE517CDE2963015E00E909A7 /* ViewController.swift */,
 				EE517CE02963015E00E909A7 /* Main.storyboard */,
 				EE517CE32963016300E909A7 /* Assets.xcassets */,
 				EE517CE52963016300E909A7 /* LaunchScreen.storyboard */,
 				EE517CE82963016300E909A7 /* Info.plist */,
+				EE09E030296D831A007AE893 /* DeviceTableVIewCell.swift */,
+				EEABCF982973E9E5005AD978 /* credit.html */,
 			);
 			path = TwoPhoneSupporter;
 			sourceTree = "<group>";
@@ -169,6 +184,24 @@
 			path = TwoPhoneSupporterUITests;
 			sourceTree = "<group>";
 		};
+		EEABCF952973E498005AD978 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				EEABCF962973E4BF005AD978 /* MainViewController.swift */,
+				EEA22E6529756681003267EF /* CreditViewController.swift */,
+				EE517CDE2963015E00E909A7 /* CentralViewController.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		EEFF494E2975F82600E664D7 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				EEFF494F2975F83A00E664D7 /* Array+unique.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,6 +213,7 @@
 				EE517CD32963015E00E909A7 /* Sources */,
 				EE517CD42963015E00E909A7 /* Frameworks */,
 				EE517CD52963015E00E909A7 /* Resources */,
+				9FB42164E9868C5589AD2C7F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +251,7 @@
 				EE517CF32963016300E909A7 /* Sources */,
 				EE517CF42963016300E909A7 /* Frameworks */,
 				EE517CF52963016300E909A7 /* Resources */,
+				219A7CE8CEB39CE2BADB1122 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE517CE72963016300E909A7 /* LaunchScreen.storyboard in Resources */,
+				EEABCF992973E9E5005AD978 /* credit.html in Resources */,
 				EE517CE42963016300E909A7 /* Assets.xcassets in Resources */,
 				EE517CE22963015E00E909A7 /* Main.storyboard in Resources */,
 			);
@@ -319,6 +355,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		219A7CE8CEB39CE2BADB1122 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests/Pods-TwoPhoneSupporter-TwoPhoneSupporterUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		71255EB037F08EDD00A52AF6 /* [CP] Check Pods Manifest.lock */ = {
@@ -365,6 +418,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9FB42164E9868C5589AD2C7F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwoPhoneSupporter/Pods-TwoPhoneSupporter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwoPhoneSupporter/Pods-TwoPhoneSupporter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TwoPhoneSupporter/Pods-TwoPhoneSupporter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -372,9 +442,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE517CDF2963015E00E909A7 /* ViewController.swift in Sources */,
+				EE517CDF2963015E00E909A7 /* CentralViewController.swift in Sources */,
+				EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */,
 				EE517CDB2963015E00E909A7 /* AppDelegate.swift in Sources */,
 				EE517CDD2963015E00E909A7 /* SceneDelegate.swift in Sources */,
+				EE09E031296D831A007AE893 /* DeviceTableVIewCell.swift in Sources */,
+				EEABCF972973E4BF005AD978 /* MainViewController.swift in Sources */,
+				EEA22E6629756681003267EF /* CreditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
