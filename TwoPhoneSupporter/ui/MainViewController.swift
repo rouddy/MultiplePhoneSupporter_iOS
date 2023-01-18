@@ -13,6 +13,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
 
@@ -26,4 +33,13 @@ class MainViewController: UIViewController {
     }
     */
 
+    @IBAction func handleActAsCentral(_ sender: Any) {
+        moveToCentral()
+    }
+    
+    private func moveToCentral() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "central") as! CentralViewController
+        present(nextViewController, animated:true, completion:nil)
+    }
 }

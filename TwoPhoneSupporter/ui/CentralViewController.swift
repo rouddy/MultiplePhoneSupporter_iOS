@@ -8,6 +8,7 @@
 import UIKit
 import AlgorigoBleLibrary
 import RxSwift
+import UserNotifications
 
 class CentralViewController: UIViewController {
     var bleDevices = [BleDevice]()
@@ -92,13 +93,32 @@ extension CentralViewController : DeviceTableViewCellDelegate {
                 .andThen(bleDevice.writeCharacteristic(uuid: "6E400002-B5A3-F393-E0A9-0123456789AB", data: "Data".data(using: .utf8)!))
                 .asObservable()
                 .flatMap { data in
-                    print("data:\(data)")
+                    print("write:\(String(decoding: data, as: UTF8.self))")
                     return bleDevice.setupNotification(uuid: "6E400002-B5A3-F393-E0A9-0123456789AB")
+                        .flatMap { $0 }
                 }
+                .do(onNext: { data in
+                    print("notification:\(String(decoding: data, as: UTF8.self))")
+                })
+                .map({ data in
+                    try? JSONSerialization.jsonObject(with: data)
+                })
                 .subscribe { event in
                     switch event {
                     case .next(let data):
-                        print("data2:\(data)")
+                        if let data = data as? [String: Any] {
+                            let content = UNMutableNotificationContent()
+                            content.title = data["title"] as? String ?? "empty title"
+                            content.body = data["text"] as? String ?? "empty body"
+                            content.sound = UNNotificationSound.default
+                            
+                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                            
+                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                            // add our notification request
+                            UNUserNotificationCenter.current().add(request)
+                        }
                     case .completed:
                         print("completed")
                     case .error(let error):
@@ -106,28 +126,6 @@ extension CentralViewController : DeviceTableViewCellDelegate {
                     }
                 }
                 .disposed(by: disposeBag)
-            
-//            bleDevice.connect()
-//                .andThen(bleDevice.writeCharacteristic(uuid: "6E400002-B5A3-F393-E0A9-0123456789AB", data: "Data".data(using: .utf8)))
-//                .asObservable()
-//                .flatMap({ data in
-//                    print("!!! 000:\(data)")
-//                    bleDevice.setupNotification(uuid: "6E400002-B5A3-F393-E0A9-0123456789AB")
-//                        .flatMap { observable in
-//                            observable
-//                        }
-//                })
-//                .subscribe { event in
-//                    switch event {
-//                    case .next(let data):
-//                        print("!!! 111:\(data)")
-//                    case .completed:
-//                        print("!!! completed")
-//                    case .error(let error):
-//                        print("!!! \(error)")
-//                    }
-//                }
-//                .disposed(by: disposeBag)
         }
     }
     
