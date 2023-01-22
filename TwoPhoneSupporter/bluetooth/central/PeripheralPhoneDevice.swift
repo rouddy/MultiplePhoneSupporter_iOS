@@ -104,23 +104,3 @@ class PeripheralPhoneDevice : InitializableBleDevice {
         return PeripheralPhoneDevice.peripheralUserDefaultKey + uuidString
     }
 }
-
-extension Data {
-    func toInt() throws -> Int32 {
-        if (count != 4) {
-            throw PeripheralError.illegalDataError
-        }
-        return withUnsafeBytes { rawPtr in
-            return rawPtr.load(as: Int32.self)
-        }
-    }
-    
-    func toShort() throws -> Int16 {
-        if (count != 2) {
-            throw PeripheralError.illegalDataError
-        }
-        return withUnsafeBytes { rawPtr in
-            return rawPtr.load(as: Int16.self)
-        }
-    }
-}
