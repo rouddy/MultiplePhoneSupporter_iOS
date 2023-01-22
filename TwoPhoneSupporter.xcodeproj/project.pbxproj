@@ -24,6 +24,8 @@
 		EEABCF972973E4BF005AD978 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEABCF962973E4BF005AD978 /* MainViewController.swift */; };
 		EEABCF992973E9E5005AD978 /* credit.html in Resources */ = {isa = PBXBuildFile; fileRef = EEABCF982973E9E5005AD978 /* credit.html */; };
 		EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF494F2975F83A00E664D7 /* Array+unique.swift */; };
+		EEFF4954297CA9D500E664D7 /* PeripheralPhoneDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF4953297CA9D500E664D7 /* PeripheralPhoneDevice.swift */; };
+		EEFF4956297D88CC00E664D7 /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF4955297D88CC00E664D7 /* Packet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		EEABCF982973E9E5005AD978 /* credit.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = credit.html; sourceTree = "<group>"; };
 		EEFF494C297581F000E664D7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		EEFF494F2975F83A00E664D7 /* Array+unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+unique.swift"; sourceTree = "<group>"; };
+		EEFF4953297CA9D500E664D7 /* PeripheralPhoneDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralPhoneDevice.swift; sourceTree = "<group>"; };
+		EEFF4955297D88CC00E664D7 /* Packet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 		EE517CD92963015E00E909A7 /* TwoPhoneSupporter */ = {
 			isa = PBXGroup;
 			children = (
+				EEFF4951297CA99200E664D7 /* bluetooth */,
 				EEFF494E2975F82600E664D7 /* util */,
 				EEABCF952973E498005AD978 /* ui */,
 				EE517D0A2963041800E909A7 /* TwoPhoneSupporter.entitlements */,
@@ -200,6 +205,23 @@
 				EEFF494F2975F83A00E664D7 /* Array+unique.swift */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		EEFF4951297CA99200E664D7 /* bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				EEFF4955297D88CC00E664D7 /* Packet.swift */,
+				EEFF4952297CA99D00E664D7 /* central */,
+			);
+			path = bluetooth;
+			sourceTree = "<group>";
+		};
+		EEFF4952297CA99D00E664D7 /* central */ = {
+			isa = PBXGroup;
+			children = (
+				EEFF4953297CA9D500E664D7 /* PeripheralPhoneDevice.swift */,
+			);
+			path = central;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,7 +468,9 @@
 				EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */,
 				EE517CDB2963015E00E909A7 /* AppDelegate.swift in Sources */,
 				EE517CDD2963015E00E909A7 /* SceneDelegate.swift in Sources */,
+				EEFF4954297CA9D500E664D7 /* PeripheralPhoneDevice.swift in Sources */,
 				EE09E031296D831A007AE893 /* DeviceTableVIewCell.swift in Sources */,
+				EEFF4956297D88CC00E664D7 /* Packet.swift in Sources */,
 				EEABCF972973E4BF005AD978 /* MainViewController.swift in Sources */,
 				EEA22E6629756681003267EF /* CreditViewController.swift in Sources */,
 			);

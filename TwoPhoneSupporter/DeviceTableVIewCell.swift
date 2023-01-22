@@ -10,13 +10,13 @@ import UIKit
 import AlgorigoBleLibrary
 
 protocol DeviceTableViewCellDelegate {
-    func onConnectBtn(bleDevice: BleDevice)
+    func onConnectBtn(bleDevice: PeripheralPhoneDevice)
 }
 
 class DeviceTableViewCell: UITableViewCell {
     
     var delegate: DeviceTableViewCellDelegate? = nil
-    private var device: BleDevice!
+    private var device: PeripheralPhoneDevice!
     
     @IBOutlet weak var deviceNameView: UILabel?
     @IBOutlet weak var connectBtn: UIButton!
@@ -26,7 +26,7 @@ class DeviceTableViewCell: UITableViewCell {
         delegate?.onConnectBtn(bleDevice: device)
     }
     
-    func setDevice(device: BleDevice) {
+    func setDevice(device: PeripheralPhoneDevice) {
         self.device = device
         deviceNameView?.text = device.getIdentifier()
         connectBtn.setTitle(device.connected ? "Disconnect" : "Connect", for: .normal)

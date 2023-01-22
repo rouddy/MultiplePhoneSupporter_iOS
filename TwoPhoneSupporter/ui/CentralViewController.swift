@@ -11,7 +11,7 @@ import RxSwift
 import UserNotifications
 
 class CentralViewController: UIViewController {
-    var bleDevices = [BleDevice]()
+    var bleDevices = [PeripheralPhoneDevice]()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var deviceTableView: UITableView?
@@ -42,10 +42,12 @@ class CentralViewController: UIViewController {
 
     private func searchDevice() {
         let connected = BluetoothManager.instance.getConnectedDevices()
-        BluetoothManager.instance.scanDevice(withServices: ["6E400001-B5A3-F393-E0A9-0123456789AB"])
+        BluetoothManager.instance.scanDevice(withServices: [PeripheralPhoneDevice.mainService])
             .take(for: RxTimeInterval.seconds(15), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
             .map({ scanned in
-                (connected + scanned).unique { $0.getIdentifier() }
+                (connected + scanned)
+                    .unique { $0.getIdentifier() }
+                    .compactMap { $0 as? PeripheralPhoneDevice }
             })
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] event in
@@ -85,18 +87,12 @@ extension CentralViewController : UITableViewDataSource, UITableViewDelegate {
 }
 
 extension CentralViewController : DeviceTableViewCellDelegate {
-    func onConnectBtn(bleDevice: BleDevice) {
+    func onConnectBtn(bleDevice: PeripheralPhoneDevice) {
         if bleDevice.connected {
             bleDevice.disconnect()
         } else {
             bleDevice.connect()
-                .andThen(bleDevice.writeCharacteristic(uuid: "6E400002-B5A3-F393-E0A9-0123456789AB", data: "Data".data(using: .utf8)!))
-                .asObservable()
-                .flatMap { data in
-                    print("write:\(String(decoding: data, as: UTF8.self))")
-                    return bleDevice.setupNotification(uuid: "6E400002-B5A3-F393-E0A9-0123456789AB")
-                        .flatMap { $0 }
-                }
+                .andThen(bleDevice.subscribeData())
                 .do(onNext: { data in
                     print("notification:\(String(decoding: data, as: UTF8.self))")
                 })

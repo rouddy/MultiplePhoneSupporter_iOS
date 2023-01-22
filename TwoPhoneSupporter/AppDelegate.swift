@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import AlgorigoBleLibrary
+import CoreBluetooth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    private class PeripheralDeviceDelegate : BleDeviceDelegate {
+        func createBleDevice(peripheral: CBPeripheral) -> BleDevice? {
+            return PeripheralPhoneDevice(peripheral)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        BluetoothManager.instance.bleDeviceDelegate = PeripheralDeviceDelegate()
         return true
     }
 
