@@ -97,12 +97,10 @@ extension CentralViewController : DeviceTableViewCellDelegate {
                     switch event {
                     case .next(let packet):
                         switch packet.type {
-                        case .checkVersion:
-                            break
-                        case .checkDevice:
-                            break
                         case .notification:
                             self?.onNotifyData(packet)
+                        default:
+                            break
                         }
                     case .completed:
                         print("completed")

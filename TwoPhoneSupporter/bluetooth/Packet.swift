@@ -10,6 +10,7 @@ import Foundation
 enum PacketType : Int16 {
     case checkVersion = 0x00
     case checkDevice = 0x01
+    case checkOS = 0x02
     case notification = 0x10
 }
 

@@ -12,18 +12,27 @@ import RxRelay
 import CoreBluetooth
 
 enum PeripheralError : Error {
+    case versionMatchError
     case deviceUnregisteredError
     case illegalDataError
 }
 
+enum OperatingSystem : UInt8 {
+    case android = 0x00
+    case iOS = 0x01
+}
+
 class PeripheralPhoneDevice : InitializableBleDevice {
     
+    fileprivate static let version: Int32 = 0x01
     fileprivate static let peripheralUserDefaultKey = "PeripheralUserDefaultKey"
     static let mainService = "6E400001-B5A3-F393-E0A9-0123456789AB"
     static let writeCharacteristic = "6E400002-B5A3-F393-E0A9-0123456789AB"
     static let notifyCharacteristic = "6E400003-B5A3-F393-E0A9-0123456789AB"
     
     private var deviceCheckUuid: String!
+    private var operatingSystem: OperatingSystem!
+    
     private var dataDisposable: Disposable? = nil
     private var receivedPacketRelay = PublishRelay<Packet>()
     
@@ -37,7 +46,9 @@ class PeripheralPhoneDevice : InitializableBleDevice {
     }
     
     override func initialzeCompletable() -> Completable {
-        return checkDevice()
+        return checkVersion()
+            .andThen(checkDevice())
+            .andThen(initOS())
             .do(onSubscribe: { [weak self] in
                 self?.dataDisposable = self?.setupNotification(uuid: PeripheralPhoneDevice.notifyCharacteristic)
                     .flatMap { $0 }
@@ -67,6 +78,32 @@ class PeripheralPhoneDevice : InitializableBleDevice {
             })
     }
     
+    private func checkVersion() -> Completable {
+        let packet = PacketType.checkVersion.createPacketData(withUnsafeBytes(of: PeripheralPhoneDevice.version) { Data($0) })
+        let writeDataObservable = writeCharacteristic(uuid: PeripheralPhoneDevice.writeCharacteristic, data: packet)
+            .asObservable()
+            .ignoreElements()
+        let receiveDataObservable = receivedPacketRelay
+            .filter { packet in
+                packet.type == .checkVersion
+            }
+            .do(onNext: { packet in
+                let bytes = packet.data.withUnsafeBytes {
+                    [UInt8](UnsafeBufferPointer(start: $0, count: packet.data.count))
+                }
+                if bytes[0] != 0x01 {
+                    throw PeripheralError.versionMatchError
+                }
+            })
+            .firstOrError()
+            .asObservable()
+            .ignoreElements()
+        
+        return Observable.of(writeDataObservable, receiveDataObservable)
+                .merge()
+                .asCompletable()
+    }
+    
     private func checkDevice() -> Completable {
         let data = PacketType.checkDevice.createPacketData(deviceCheckUuid.data(using: .utf8)!)
         let writeDataObservable = writeCharacteristic(uuid: PeripheralPhoneDevice.writeCharacteristic, data: data)
@@ -83,6 +120,30 @@ class PeripheralPhoneDevice : InitializableBleDevice {
                 if bytes[0] != 0x01 {
                     throw PeripheralError.deviceUnregisteredError
                 }
+            })
+            .firstOrError()
+            .asObservable()
+            .ignoreElements()
+        
+        return Observable.of(writeDataObservable, receiveDataObservable)
+                .merge()
+                .asCompletable()
+    }
+    
+    private func initOS() -> Completable {
+        let packet = PacketType.checkDevice.createPacketData(Data(repeating: OperatingSystem.iOS.rawValue, count: 1))
+        let writeDataObservable = writeCharacteristic(uuid: PeripheralPhoneDevice.writeCharacteristic, data: packet)
+            .asObservable()
+            .ignoreElements()
+        let receiveDataObservable = receivedPacketRelay
+            .filter { packet in
+                packet.type == .checkOS
+            }
+            .do(onNext: { [weak self] packet in
+                let bytes = packet.data.withUnsafeBytes {
+                    [UInt8](UnsafeBufferPointer(start: $0, count: packet.data.count))
+                }
+                self?.operatingSystem = OperatingSystem(rawValue: bytes[0])
             })
             .firstOrError()
             .asObservable()
