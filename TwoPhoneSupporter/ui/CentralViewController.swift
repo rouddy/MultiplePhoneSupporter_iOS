@@ -93,27 +93,16 @@ extension CentralViewController : DeviceTableViewCellDelegate {
         } else {
             bleDevice.connect()
                 .andThen(bleDevice.subscribeData())
-                .do(onNext: { data in
-                    print("notification:\(String(decoding: data, as: UTF8.self))")
-                })
-                .map({ data in
-                    try? JSONSerialization.jsonObject(with: data)
-                })
-                .subscribe { event in
+                .subscribe { [weak self] event in
                     switch event {
-                    case .next(let data):
-                        if let data = data as? [String: Any] {
-                            let content = UNMutableNotificationContent()
-                            content.title = data["title"] as? String ?? "empty title"
-                            content.body = data["text"] as? String ?? "empty body"
-                            content.sound = UNNotificationSound.default
-                            
-                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                            
-                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-                            // add our notification request
-                            UNUserNotificationCenter.current().add(request)
+                    case .next(let packet):
+                        switch packet.type {
+                        case .checkVersion:
+                            break
+                        case .checkDevice:
+                            break
+                        case .notification:
+                            self?.onNotifyData(packet)
                         }
                     case .completed:
                         print("completed")
@@ -122,6 +111,22 @@ extension CentralViewController : DeviceTableViewCellDelegate {
                     }
                 }
                 .disposed(by: disposeBag)
+        }
+    }
+    
+    private func onNotifyData(_ packet: Packet) {
+        if let json = try? JSONSerialization.jsonObject(with: packet.data) as? [String: Any] {
+            let content = UNMutableNotificationContent()
+            content.title = json["title"] as? String ?? "empty title"
+            content.body = json["text"] as? String ?? "empty body"
+            content.sound = UNNotificationSound.default
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+            // add our notification request
+            UNUserNotificationCenter.current().add(request)
         }
     }
     

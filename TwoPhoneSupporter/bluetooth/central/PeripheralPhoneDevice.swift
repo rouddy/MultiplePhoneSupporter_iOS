@@ -93,11 +93,8 @@ class PeripheralPhoneDevice : InitializableBleDevice {
                 .asCompletable()
     }
     
-    func subscribeData() -> Observable<Data> {
+    func subscribeData() -> Observable<Packet> {
         return receivedPacketRelay.asObservable()
-            .map { packet in
-                packet.data
-            }
     }
     
     private func getPeripheralUserDefaultKey(_ uuidString: String) -> String {
