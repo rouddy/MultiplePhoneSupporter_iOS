@@ -14,6 +14,7 @@ import CoreBluetooth
 enum PeripheralError : Error {
     case versionMatchError
     case deviceUnregisteredError
+    case illegalOperatingSystem
     case illegalDataError
 }
 
@@ -78,80 +79,68 @@ class PeripheralPhoneDevice : InitializableBleDevice {
             })
     }
     
-    private func checkVersion() -> Completable {
-        let packet = PacketType.checkVersion.createPacketData(withUnsafeBytes(of: PeripheralPhoneDevice.version) { Data($0) })
-        let writeDataObservable = writeCharacteristic(uuid: PeripheralPhoneDevice.writeCharacteristic, data: packet)
-            .asObservable()
-            .ignoreElements()
-        let receiveDataObservable = receivedPacketRelay
+    private func sendPacket(uuid: String, packetType: PacketType, data: Data) -> Single<Data> {
+        let packet = packetType.createPacketData(data)
+        let writeDataSingle = writeCharacteristic(uuid: uuid, data: packet)
+        let receiveDataSingle = receivedPacketRelay
             .filter { packet in
-                packet.type == .checkVersion
+                packet.type == packetType
             }
-            .do(onNext: { packet in
-                let bytes = packet.data.withUnsafeBytes {
-                    [UInt8](UnsafeBufferPointer(start: $0, count: packet.data.count))
-                }
-                if bytes[0] != 0x01 {
+            .map({ packet in
+                packet.data
+            })
+            .firstOrError()
+                
+        return Single.zip(writeDataSingle, receiveDataSingle) { writeResult, receivedData in
+            receivedData
+        }
+    }
+    
+    private func checkVersion() -> Completable {
+        return sendPacket(uuid: PeripheralPhoneDevice.writeCharacteristic,
+                          packetType: PacketType.checkVersion,
+                          data: withUnsafeBytes(of: PeripheralPhoneDevice.version) { Data($0) })
+            .map { data in
+                data.toUInt8Array()[0]
+            }
+            .do(onSuccess: { byte in
+                if byte != 0x01 {
                     throw PeripheralError.versionMatchError
                 }
             })
-            .firstOrError()
-            .asObservable()
-            .ignoreElements()
-        
-        return Observable.of(writeDataObservable, receiveDataObservable)
-                .merge()
-                .asCompletable()
+            .asCompletable()
     }
     
     private func checkDevice() -> Completable {
-        let data = PacketType.checkDevice.createPacketData(deviceCheckUuid.data(using: .utf8)!)
-        let writeDataObservable = writeCharacteristic(uuid: PeripheralPhoneDevice.writeCharacteristic, data: data)
-            .asObservable()
-            .ignoreElements()
-        let receiveDataObservable = receivedPacketRelay
-            .filter { packet in
-                packet.type == .checkDevice
+        return sendPacket(uuid: PeripheralPhoneDevice.writeCharacteristic,
+                          packetType: PacketType.checkDevice,
+                          data: deviceCheckUuid.data(using: .utf8)!)
+            .map { data in
+                data.toUInt8Array()[0]
             }
-            .do(onNext: { packet in
-                let bytes = packet.data.withUnsafeBytes {
-                    [UInt8](UnsafeBufferPointer(start: $0, count: packet.data.count))
-                }
-                if bytes[0] != 0x01 {
+            .do(onSuccess: { byte in
+                if byte != 0x01 {
                     throw PeripheralError.deviceUnregisteredError
                 }
             })
-            .firstOrError()
-            .asObservable()
-            .ignoreElements()
-        
-        return Observable.of(writeDataObservable, receiveDataObservable)
-                .merge()
-                .asCompletable()
+            .asCompletable()
     }
     
     private func initOS() -> Completable {
-        let packet = PacketType.checkDevice.createPacketData(Data(repeating: OperatingSystem.iOS.rawValue, count: 1))
-        let writeDataObservable = writeCharacteristic(uuid: PeripheralPhoneDevice.writeCharacteristic, data: packet)
-            .asObservable()
-            .ignoreElements()
-        let receiveDataObservable = receivedPacketRelay
-            .filter { packet in
-                packet.type == .checkOS
-            }
-            .do(onNext: { [weak self] packet in
-                let bytes = packet.data.withUnsafeBytes {
-                    [UInt8](UnsafeBufferPointer(start: $0, count: packet.data.count))
+        return sendPacket(uuid: PeripheralPhoneDevice.writeCharacteristic,
+                          packetType: PacketType.checkOS,
+                          data: Data(repeating: OperatingSystem.iOS.rawValue, count: 1))
+            .map { data in
+                let byte = data.toUInt8Array()[0]
+                guard let operatingSystem = OperatingSystem(rawValue: byte) else {
+                    throw PeripheralError.illegalOperatingSystem
                 }
-                self?.operatingSystem = OperatingSystem(rawValue: bytes[0])
+                return operatingSystem
+            }
+            .do(onSuccess: { [weak self] operatingSystem in
+                self?.operatingSystem = operatingSystem
             })
-            .firstOrError()
-            .asObservable()
-            .ignoreElements()
-        
-        return Observable.of(writeDataObservable, receiveDataObservable)
-                .merge()
-                .asCompletable()
+            .asCompletable()
     }
     
     func subscribeData() -> Observable<Packet> {
@@ -160,5 +149,13 @@ class PeripheralPhoneDevice : InitializableBleDevice {
     
     private func getPeripheralUserDefaultKey(_ uuidString: String) -> String {
         return PeripheralPhoneDevice.peripheralUserDefaultKey + uuidString
+    }
+}
+
+extension Data {
+    func toUInt8Array() -> [UInt8] {
+        withUnsafeBytes { pointer in
+            [UInt8](pointer)
+        }
     }
 }
