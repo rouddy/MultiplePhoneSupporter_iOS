@@ -26,6 +26,7 @@
 		EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF494F2975F83A00E664D7 /* Array+unique.swift */; };
 		EEFF4954297CA9D500E664D7 /* PeripheralPhoneDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF4953297CA9D500E664D7 /* PeripheralPhoneDevice.swift */; };
 		EEFF4956297D88CC00E664D7 /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF4955297D88CC00E664D7 /* Packet.swift */; };
+		EEFF49582984FF1500E664D7 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF49572984FF1500E664D7 /* BluetoothService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		EEFF494F2975F83A00E664D7 /* Array+unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+unique.swift"; sourceTree = "<group>"; };
 		EEFF4953297CA9D500E664D7 /* PeripheralPhoneDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralPhoneDevice.swift; sourceTree = "<group>"; };
 		EEFF4955297D88CC00E664D7 /* Packet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
+		EEFF49572984FF1500E664D7 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				EEFF4955297D88CC00E664D7 /* Packet.swift */,
+				EEFF49572984FF1500E664D7 /* BluetoothService.swift */,
 				EEFF4952297CA99D00E664D7 /* central */,
 			);
 			path = bluetooth;
@@ -468,6 +471,7 @@
 				EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */,
 				EE517CDB2963015E00E909A7 /* AppDelegate.swift in Sources */,
 				EE517CDD2963015E00E909A7 /* SceneDelegate.swift in Sources */,
+				EEFF49582984FF1500E664D7 /* BluetoothService.swift in Sources */,
 				EEFF4954297CA9D500E664D7 /* PeripheralPhoneDevice.swift in Sources */,
 				EE09E031296D831A007AE893 /* DeviceTableVIewCell.swift in Sources */,
 				EEFF4956297D88CC00E664D7 /* Packet.swift in Sources */,

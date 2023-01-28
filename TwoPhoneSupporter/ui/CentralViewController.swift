@@ -89,43 +89,10 @@ extension CentralViewController : UITableViewDataSource, UITableViewDelegate {
 extension CentralViewController : DeviceTableViewCellDelegate {
     func onConnectBtn(bleDevice: PeripheralPhoneDevice) {
         if bleDevice.connected {
-            bleDevice.disconnect()
+            BluetoothService.instance.removeDevice(device: bleDevice)
         } else {
-            bleDevice.connect()
-                .andThen(bleDevice.subscribeData())
-                .subscribe { [weak self] event in
-                    switch event {
-                    case .next(let packet):
-                        switch packet.type {
-                        case .notification:
-                            self?.onNotifyData(packet)
-                        default:
-                            break
-                        }
-                    case .completed:
-                        print("completed")
-                    case .error(let error):
-                        print("error:\(error)")
-                    }
-                }
-                .disposed(by: disposeBag)
+            print("onConnectBtn:\(bleDevice.getIdentifier())")
+            BluetoothService.instance.addDevice(device: bleDevice)
         }
     }
-    
-    private func onNotifyData(_ packet: Packet) {
-        if let json = try? JSONSerialization.jsonObject(with: packet.data) as? [String: Any] {
-            let content = UNMutableNotificationContent()
-            content.title = json["title"] as? String ?? "empty title"
-            content.body = json["text"] as? String ?? "empty body"
-            content.sound = UNNotificationSound.default
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-            // add our notification request
-            UNUserNotificationCenter.current().add(request)
-        }
-    }
-    
 }
