@@ -31,26 +31,20 @@ class PeripheralPhoneDevice : InitializableBleDevice {
     static let writeCharacteristic = "6E400002-B5A3-F393-E0A9-0123456789AB"
     static let notifyCharacteristic = "6E400003-B5A3-F393-E0A9-0123456789AB"
     
-    private var deviceCheckUuid: String!
+    private static func getPeripheralUserDefaultKey(_ id: String) -> String {
+        return peripheralUserDefaultKey + id
+    }
+    
     private var operatingSystem: OperatingSystem!
     
     private var dataDisposable: Disposable? = nil
     private var receivedPacketRelay = PublishRelay<Packet>()
     
-    required init(_ peripheral: CBPeripheral) {
-        super.init(peripheral)
-        let key = getPeripheralUserDefaultKey(peripheral.identifier.uuidString)
-        if let deviceCheckUuidString = UserDefaults.standard.string(forKey: key) {
-            deviceCheckUuid = deviceCheckUuidString
-        } else {
-            deviceCheckUuid = UUID().uuidString
-            UserDefaults.standard.set(deviceCheckUuid, forKey: key)
-        }
-    }
-    
     override func initialzeCompletable() -> Completable {
         return checkVersion()
-            .andThen(checkDevice())
+            .flatMapCompletable({ [weak self] peripheralId in
+                self?.checkDevice(peripheralId: peripheralId) ?? Completable.error(RxError.unknown)
+            })
             .do(onSubscribe: { [weak self] in
                 self?.dataDisposable = self?.setupNotification(uuid: PeripheralPhoneDevice.notifyCharacteristic)
                     .flatMap { $0 }
@@ -97,30 +91,36 @@ class PeripheralPhoneDevice : InitializableBleDevice {
         }
     }
     
-    private func checkVersion() -> Completable {
+    private func checkVersion() -> Single<String> {
         return sendPacket(uuid: PeripheralPhoneDevice.writeCharacteristic,
                           packetType: PacketType.checkVersion,
                           data: withUnsafeBytes(of: PeripheralPhoneDevice.version) { Data($0) })
             .map { data in
-                data.toUInt8Array()[0]
-            }
-            .do(onSuccess: { byte in
-                if byte != 0x01 {
+                let json = try JSONSerialization.jsonObject(with: data) as! [String: Any]
+                print("json:\(json)")
+                if json["versionOk"] as? Bool != true {
                     throw PeripheralError.versionMatchError
                 }
-            })
-            .asCompletable()
+                guard let peripheralId = json["peripheralId"] as? String else {
+                    throw PeripheralError.versionMatchError
+                }
+                return peripheralId
+            }
     }
     
-    private func checkDevice() -> Completable {
-        return Single<Data>.create { [weak self] observer in
-            guard let this = self else {
-                observer(.failure(RxError.noElements))
-                return Disposables.create()
+    private func checkDevice(peripheralId: String) -> Completable {
+        return Single<Data>.create { observer in
+            let deviceCheckUuid: String
+            let key = PeripheralPhoneDevice.getPeripheralUserDefaultKey(peripheralId)
+            if let deviceCheckUuidString = UserDefaults.standard.string(forKey: key) {
+                deviceCheckUuid = deviceCheckUuidString
+            } else {
+                deviceCheckUuid = UUID().uuidString
+                UserDefaults.standard.set(deviceCheckUuid, forKey: key)
             }
             
             let json: [String : Any] = [
-                "uuid": this.deviceCheckUuid!,
+                "uuid": deviceCheckUuid,
                 "os": OperatingSystem.iOS.rawValue,
             ]
             
@@ -156,12 +156,15 @@ class PeripheralPhoneDevice : InitializableBleDevice {
             .asCompletable()
     }
     
-    func subscribeData() -> Observable<Packet> {
-        return receivedPacketRelay.asObservable()
+    func clearDevice() -> Completable {
+        sendPacket(uuid: PeripheralPhoneDevice.writeCharacteristic,
+                   packetType: PacketType.clearDevice,
+                   data: Data())
+            .asCompletable()
     }
     
-    private func getPeripheralUserDefaultKey(_ uuidString: String) -> String {
-        return PeripheralPhoneDevice.peripheralUserDefaultKey + uuidString
+    func subscribeData() -> Observable<Packet> {
+        return receivedPacketRelay.asObservable()
     }
 }
 

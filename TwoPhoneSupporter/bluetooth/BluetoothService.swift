@@ -50,6 +50,7 @@ class BluetoothService {
                                     connectDevice == disconnectDevice
                                 }))
                         )
+                        .concat(connectDevice.clearDevice())
                         .do(onCompleted: { [weak self] in
                             print("disconnect:\(connectDevice.getIdentifier())")
                             if let this = self {

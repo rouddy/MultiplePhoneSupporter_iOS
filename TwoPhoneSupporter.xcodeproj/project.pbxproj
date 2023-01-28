@@ -27,6 +27,7 @@
 		EEFF4954297CA9D500E664D7 /* PeripheralPhoneDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF4953297CA9D500E664D7 /* PeripheralPhoneDevice.swift */; };
 		EEFF4956297D88CC00E664D7 /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF4955297D88CC00E664D7 /* Packet.swift */; };
 		EEFF49582984FF1500E664D7 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF49572984FF1500E664D7 /* BluetoothService.swift */; };
+		EEFF495A29857C3000E664D7 /* Observable+concat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF495929857C3000E664D7 /* Observable+concat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		EEFF4953297CA9D500E664D7 /* PeripheralPhoneDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralPhoneDevice.swift; sourceTree = "<group>"; };
 		EEFF4955297D88CC00E664D7 /* Packet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
 		EEFF49572984FF1500E664D7 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		EEFF495929857C3000E664D7 /* Observable+concat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+concat.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				EEFF494F2975F83A00E664D7 /* Array+unique.swift */,
+				EEFF495929857C3000E664D7 /* Observable+concat.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE517CDF2963015E00E909A7 /* CentralViewController.swift in Sources */,
+				EEFF495A29857C3000E664D7 /* Observable+concat.swift in Sources */,
 				EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */,
 				EE517CDB2963015E00E909A7 /* AppDelegate.swift in Sources */,
 				EE517CDD2963015E00E909A7 /* SceneDelegate.swift in Sources */,
