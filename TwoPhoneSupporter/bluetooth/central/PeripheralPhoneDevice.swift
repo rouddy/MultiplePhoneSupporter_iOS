@@ -39,10 +39,12 @@ class PeripheralPhoneDevice : InitializableBleDevice {
     
     required init(_ peripheral: CBPeripheral) {
         super.init(peripheral)
-        if let deviceCheckUuidString = UserDefaults.standard.string(forKey: getPeripheralUserDefaultKey(peripheral.identifier.uuidString)) {
+        let key = getPeripheralUserDefaultKey(peripheral.identifier.uuidString)
+        if let deviceCheckUuidString = UserDefaults.standard.string(forKey: key) {
             deviceCheckUuid = deviceCheckUuidString
         } else {
             deviceCheckUuid = UUID().uuidString
+            UserDefaults.standard.set(deviceCheckUuid, forKey: key)
         }
     }
     
