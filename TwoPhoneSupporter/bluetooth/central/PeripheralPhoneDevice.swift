@@ -49,7 +49,6 @@ class PeripheralPhoneDevice : InitializableBleDevice {
     override func initialzeCompletable() -> Completable {
         return checkVersion()
             .andThen(checkDevice())
-            .andThen(initOS())
             .do(onSubscribe: { [weak self] in
                 self?.dataDisposable = self?.setupNotification(uuid: PeripheralPhoneDevice.notifyCharacteristic)
                     .flatMap { $0 }
@@ -112,33 +111,45 @@ class PeripheralPhoneDevice : InitializableBleDevice {
     }
     
     private func checkDevice() -> Completable {
-        return sendPacket(uuid: PeripheralPhoneDevice.writeCharacteristic,
-                          packetType: PacketType.checkDevice,
-                          data: deviceCheckUuid.data(using: .utf8)!)
-            .map { data in
-                data.toUInt8Array()[0]
+        return Single<Data>.create { [weak self] observer in
+            guard let this = self else {
+                observer(.failure(RxError.noElements))
+                return Disposables.create()
             }
-            .do(onSuccess: { byte in
-                if byte != 0x01 {
+            
+            let json: [String : Any] = [
+                "uuid": this.deviceCheckUuid!,
+                "os": OperatingSystem.iOS.rawValue,
+            ]
+            
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: .sortedKeys)
+                observer(.success(jsonData))
+            } catch {
+                observer(.failure(error))
+            }
+            
+            return Disposables.create()
+        }
+            .flatMap { [weak self] data in
+                self?.sendPacket(uuid: PeripheralPhoneDevice.writeCharacteristic,
+                                 packetType: PacketType.checkDevice,
+                                 data: data)
+                ?? Single.error(RxError.unknown)
+            }
+            .map { data in
+                try JSONSerialization.jsonObject(with: data) as! [String: Any]
+            }
+            .do(onSuccess: { [weak self] json in
+                if json["vaildDevice"] as? Bool != true {
                     throw PeripheralError.deviceUnregisteredError
                 }
-            })
-            .asCompletable()
-    }
-    
-    private func initOS() -> Completable {
-        return sendPacket(uuid: PeripheralPhoneDevice.writeCharacteristic,
-                          packetType: PacketType.checkOS,
-                          data: Data(repeating: OperatingSystem.iOS.rawValue, count: 1))
-            .map { data in
-                let byte = data.toUInt8Array()[0]
-                guard let operatingSystem = OperatingSystem(rawValue: byte) else {
+                if let operatingSystemRawValue = json["os"] as? UInt8,
+                   let operatingSystem = OperatingSystem(rawValue: operatingSystemRawValue) {
+                    self?.operatingSystem = operatingSystem
+                } else {
                     throw PeripheralError.illegalOperatingSystem
                 }
-                return operatingSystem
-            }
-            .do(onSuccess: { [weak self] operatingSystem in
-                self?.operatingSystem = operatingSystem
             })
             .asCompletable()
     }
