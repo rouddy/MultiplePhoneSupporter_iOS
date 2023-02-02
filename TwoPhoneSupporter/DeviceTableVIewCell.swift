@@ -28,7 +28,7 @@ class DeviceTableViewCell: UITableViewCell {
     
     func setDevice(device: PeripheralPhoneDevice) {
         self.device = device
-        deviceNameView?.text = device.getIdentifier()
+        deviceNameView?.text = device.getName()
         connectBtn.setTitle(device.connected ? "Disconnect" : "Connect", for: .normal)
     }
 }

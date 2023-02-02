@@ -20,7 +20,7 @@ class BluetoothService {
     private let connectDeviceRelay = PublishRelay<PeripheralPhoneDevice>()
     private let disconnectDeviceRelay = PublishRelay<PeripheralPhoneDevice>()
     
-    private var uuidStrings: [String] {
+    private var nameStrings: [String] {
         get {
             UserDefaults.standard.stringArray(forKey: BluetoothService.keyStoredDevice) ?? []
         }
@@ -39,9 +39,9 @@ class BluetoothService {
                     print("connect start:\(connectDevice.getIdentifier())")
                     return connectDevice.connect()
                         .do(onCompleted: { [weak self] in
-                            print("connect end:\(connectDevice.getIdentifier())")
+                            print("connect end:\(connectDevice.getName()):\(connectDevice.getIdentifier())")
                             if let this = self {
-                                this.uuidStrings = this.uuidStrings + [connectDevice.getIdentifier()]
+                                this.nameStrings = this.nameStrings + [connectDevice.getName() ?? ""]
                             }
                         })
                         .andThen(
@@ -51,11 +51,15 @@ class BluetoothService {
                                 }))
                         )
                         .concat(connectDevice.clearDevice())
+                        .catch({ error in
+                            
+                            Observable.error(error)
+                        })
                         .do(onCompleted: { [weak self] in
-                            print("disconnect:\(connectDevice.getIdentifier())")
+                            print("disconnect:\(connectDevice.getName()):\(connectDevice.getIdentifier())")
                             if let this = self {
-                                this.uuidStrings = this.uuidStrings.filter({ uuidString in
-                                    uuidString != connectDevice.getIdentifier()
+                                this.nameStrings = this.nameStrings.filter({ nameString in
+                                    nameString != connectDevice.getName()
                                 })
                             }
                             connectDevice.disconnect()
@@ -82,24 +86,48 @@ class BluetoothService {
             }
             .disposed(by: disposeBag)
         
-        let uuids = uuidStrings.compactMap { uuidString in
-            UUID(uuidString: uuidString)
-        }
-        BluetoothManager.instance.retrieveDevice(identifiers: uuids)
-            .asObservable()
-            .flatMap { bleDevices in
-                Observable.from(bleDevices.compactMap({ bleDevice in
-                    bleDevice as? PeripheralPhoneDevice
-                }))
+        var scanned = Array<BleDevice>()
+        print("nameStrings:\(nameStrings.joined(separator: ","))")
+        BluetoothManager.instance.scanDevice(withServices: [PeripheralPhoneDevice.mainService])
+            .map { bleDevices in
+                bleDevices
+                    .compactMap({ bleDevice in
+                        bleDevice as? PeripheralPhoneDevice
+                    })
+                    .filter { bleDevice in
+                        self.nameStrings.contains(bleDevice.getName() ?? "")
+                    }
             }
-            .subscribe { [weak self] event in
+            .flatMap { bleDevices in
+                Observable.from(bleDevices)
+            }
+            .concatMap({ bleDevice in
+                Observable<PeripheralPhoneDevice>.create { observer in
+                    if !scanned.contains(where: { scan in
+                        scan.getName() == bleDevice.getName()
+                    }) {
+                        scanned.append(bleDevice)
+                        observer.onNext(bleDevice)
+                    }
+                    observer.onCompleted()
+                    return Disposables.create()
+                }
+            })
+            .do(onNext: { bleDevice in
+                print("scan do onNext:\(bleDevice.getName()):\(bleDevice.getIdentifier())")
+                self.addDevice(device: bleDevice)
+            })
+            .take(while: { _ in
+                scanned.count < self.nameStrings.count
+            })
+            .subscribe { event in
                 switch event {
-                case .next(let device):
-                    self?.addDevice(device: device)
+                case .next(let bleDevice):
+                    print("scan onNext:\(bleDevice.getName()):\(bleDevice.getIdentifier())")
                 case .error(let error):
-                    print("retrieve device error:\(error)")
+                    print("scan device error:\(error)")
                 case .completed:
-                    print("retrieve device completed")
+                    print("scan device completed")
                 }
             }
             .disposed(by: disposeBag)
