@@ -89,10 +89,10 @@ extension CentralViewController : UITableViewDataSource, UITableViewDelegate {
 extension CentralViewController : DeviceTableViewCellDelegate {
     func onConnectBtn(bleDevice: PeripheralPhoneDevice) {
         if bleDevice.connected {
-            BluetoothService.instance.removeDevice(device: bleDevice)
+            BluetoothService.instance.disconnectDevice(device: bleDevice)
         } else {
             print("onConnectBtn:\(bleDevice.getIdentifier())")
-            BluetoothService.instance.addDevice(device: bleDevice)
+            BluetoothService.instance.connectDevice(device: bleDevice)
         }
     }
 }

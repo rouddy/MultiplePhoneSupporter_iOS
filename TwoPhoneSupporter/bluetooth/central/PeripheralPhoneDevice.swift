@@ -39,6 +39,7 @@ class PeripheralPhoneDevice : InitializableBleDevice {
     
     private var dataDisposable: Disposable? = nil
     private var receivedPacketRelay = PublishRelay<Packet>()
+    private var errorRelay = PublishRelay<Error>()
     
     override func initialzeCompletable() -> Completable {
         return checkVersion()
@@ -66,6 +67,7 @@ class PeripheralPhoneDevice : InitializableBleDevice {
                             print("setupNotification next:\(data)")
                         case .error(let error):
                             print("setupNotification error:\(error)")
+                            self?.errorRelay.accept(error)
                             self?.disconnect()
                         case .completed:
                             print("setupNotification completed")
@@ -164,7 +166,13 @@ class PeripheralPhoneDevice : InitializableBleDevice {
     }
     
     func subscribeData() -> Observable<Packet> {
-        return receivedPacketRelay.asObservable()
+        return Observable.merge(
+            receivedPacketRelay.asObservable(),
+            errorRelay
+                .map({ error -> Packet in
+                    throw error
+                })
+        )
     }
 }
 
