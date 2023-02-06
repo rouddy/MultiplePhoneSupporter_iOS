@@ -10,7 +10,12 @@ import AlgorigoBleLibrary
 import RxSwift
 import UserNotifications
 
+protocol DismissCallback {
+    func onDismissed()
+}
+
 class CentralViewController: UIViewController {
+    
     var bleDevices = [PeripheralPhoneDevice]()
     let disposeBag = DisposeBag()
     
@@ -21,6 +26,16 @@ class CentralViewController: UIViewController {
         // Do any additional setup after loading the view.
         stateSubscribe()
         searchDevice()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear : \(isBeingDismissed)")
+        if isBeingDismissed {
+            print("parent:\(presentingViewController):\(presentingViewController.self)")
+            if let callback = presentingViewController as? DismissCallback {
+                callback.onDismissed()
+            }
+        }
     }
     
     private func stateSubscribe() {

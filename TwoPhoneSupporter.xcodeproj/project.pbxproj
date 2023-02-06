@@ -20,8 +20,11 @@
 		EE517CF22963016300E909A7 /* TwoPhoneSupporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CF12963016300E909A7 /* TwoPhoneSupporterTests.swift */; };
 		EE517CFC2963016300E909A7 /* TwoPhoneSupporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CFB2963016300E909A7 /* TwoPhoneSupporterUITests.swift */; };
 		EE517CFE2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE517CFD2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift */; };
+		EE9FE8A4298FA171000F1857 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE8A3298FA171000F1857 /* SettingsViewController.swift */; };
+		EE9FE8A6298FA333000F1857 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE8A5298FA333000F1857 /* SettingsTableViewCell.swift */; };
+		EE9FE8A8298FA618000F1857 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FE8A7298FA618000F1857 /* MainViewController.swift */; };
 		EEA22E6629756681003267EF /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA22E6529756681003267EF /* CreditViewController.swift */; };
-		EEABCF972973E4BF005AD978 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEABCF962973E4BF005AD978 /* MainViewController.swift */; };
+		EEABCF972973E4BF005AD978 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEABCF962973E4BF005AD978 /* ConnectViewController.swift */; };
 		EEABCF992973E9E5005AD978 /* credit.html in Resources */ = {isa = PBXBuildFile; fileRef = EEABCF982973E9E5005AD978 /* credit.html */; };
 		EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF494F2975F83A00E664D7 /* Array+unique.swift */; };
 		EEFF4954297CA9D500E664D7 /* PeripheralPhoneDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF4953297CA9D500E664D7 /* PeripheralPhoneDevice.swift */; };
@@ -72,8 +75,11 @@
 		EE517CFB2963016300E909A7 /* TwoPhoneSupporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPhoneSupporterUITests.swift; sourceTree = "<group>"; };
 		EE517CFD2963016300E909A7 /* TwoPhoneSupporterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPhoneSupporterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EE517D0A2963041800E909A7 /* TwoPhoneSupporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwoPhoneSupporter.entitlements; sourceTree = "<group>"; };
+		EE9FE8A3298FA171000F1857 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EE9FE8A5298FA333000F1857 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		EE9FE8A7298FA618000F1857 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EEA22E6529756681003267EF /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
-		EEABCF962973E4BF005AD978 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EEABCF962973E4BF005AD978 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		EEABCF982973E9E5005AD978 /* credit.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = credit.html; sourceTree = "<group>"; };
 		EEFF494C297581F000E664D7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		EEFF494F2975F83A00E664D7 /* Array+unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+unique.swift"; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				EE517CE82963016300E909A7 /* Info.plist */,
 				EE09E030296D831A007AE893 /* DeviceTableVIewCell.swift */,
 				EEABCF982973E9E5005AD978 /* credit.html */,
+				EE9FE8A5298FA333000F1857 /* SettingsTableViewCell.swift */,
 			);
 			path = TwoPhoneSupporter;
 			sourceTree = "<group>";
@@ -196,9 +203,11 @@
 		EEABCF952973E498005AD978 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				EEABCF962973E4BF005AD978 /* MainViewController.swift */,
+				EEABCF962973E4BF005AD978 /* ConnectViewController.swift */,
 				EEA22E6529756681003267EF /* CreditViewController.swift */,
 				EE517CDE2963015E00E909A7 /* CentralViewController.swift */,
+				EE9FE8A3298FA171000F1857 /* SettingsViewController.swift */,
+				EE9FE8A7298FA618000F1857 /* MainViewController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -475,12 +484,15 @@
 				EEFF49502975F83A00E664D7 /* Array+unique.swift in Sources */,
 				EE517CDB2963015E00E909A7 /* AppDelegate.swift in Sources */,
 				EE517CDD2963015E00E909A7 /* SceneDelegate.swift in Sources */,
+				EE9FE8A6298FA333000F1857 /* SettingsTableViewCell.swift in Sources */,
 				EEFF49582984FF1500E664D7 /* BluetoothService.swift in Sources */,
+				EE9FE8A8298FA618000F1857 /* MainViewController.swift in Sources */,
 				EEFF4954297CA9D500E664D7 /* PeripheralPhoneDevice.swift in Sources */,
 				EE09E031296D831A007AE893 /* DeviceTableVIewCell.swift in Sources */,
 				EEFF4956297D88CC00E664D7 /* Packet.swift in Sources */,
-				EEABCF972973E4BF005AD978 /* MainViewController.swift in Sources */,
+				EEABCF972973E4BF005AD978 /* ConnectViewController.swift in Sources */,
 				EEA22E6629756681003267EF /* CreditViewController.swift in Sources */,
+				EE9FE8A4298FA171000F1857 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

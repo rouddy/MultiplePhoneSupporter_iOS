@@ -46,7 +46,7 @@ class BluetoothService {
     private let deviceNamesToConnectManager: DeviceNamesToConnectManager!
     
     private init() {
-        deviceNamesToConnectManager = DeviceNamesToConnectManager(UserDefaults.standard.stringArray(forKey: BluetoothService.keyStoredDevice) ?? [])
+        deviceNamesToConnectManager = DeviceNamesToConnectManager(BluetoothService.getStoredDeviceNames())
         connectDeviceRelay
             .filter({ device in
                 device.connectionState == .DISCONNECTED
@@ -58,7 +58,7 @@ class BluetoothService {
                         .do(onCompleted: { [weak self] in
                             print("connect end:\(connectDevice.getName()):\(connectDevice.getIdentifier())")
                             if let deviceName = connectDevice.getName() {
-                                self?.storeDeviceName(deviceName: deviceName)
+                                BluetoothService.storeDeviceName(deviceName: deviceName)
                             }
                         })
                         .andThen(
@@ -71,7 +71,7 @@ class BluetoothService {
                         .do(onCompleted: { [weak self] in
                             print("disconnect:\(connectDevice.getName()):\(connectDevice.getIdentifier())")
                             if let deviceName = connectDevice.getName() {
-                                self?.removeDeviceName(deviceName: deviceName)
+                                BluetoothService.removeDeviceName(deviceName: deviceName)
                             }
                             connectDevice.disconnect()
                         })
@@ -158,18 +158,18 @@ class BluetoothService {
             .disposed(by: disposeBag)
     }
     
-    fileprivate func getStoredDeviceNames() -> [String] {
+    static func getStoredDeviceNames() -> [String] {
         return UserDefaults.standard.stringArray(forKey: BluetoothService.keyStoredDevice) ?? []
     }
     
-    fileprivate func storeDeviceName(deviceName: String) {
-        var stored = getStoredDeviceNames()
+    static func storeDeviceName(deviceName: String) {
+        var stored = BluetoothService.getStoredDeviceNames()
         stored.append(deviceName)
         UserDefaults.standard.set(stored, forKey: BluetoothService.keyStoredDevice)
     }
     
-    fileprivate func removeDeviceName(deviceName: String) {
-        var stored = getStoredDeviceNames()
+    static func removeDeviceName(deviceName: String) {
+        var stored = BluetoothService.getStoredDeviceNames()
         stored.removeAll { $0 == deviceName }
         UserDefaults.standard.set(stored, forKey: BluetoothService.keyStoredDevice)
     }
