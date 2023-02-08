@@ -214,19 +214,43 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Device is connected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yG-9M-4Ve">
+                                <rect key="frame" x="0.0" y="92" width="414" height="38"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="K8R-9T-pmA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LwB-WN-Wlp">
+                                <rect key="frame" x="0.0" y="130" width="414" height="766"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ujZ-ev-88z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="1yG-9M-4Ve" firstAttribute="leading" secondItem="ujZ-ev-88z" secondAttribute="leading" id="0iA-Sf-iJ2"/>
+                            <constraint firstItem="LwB-WN-Wlp" firstAttribute="top" secondItem="1yG-9M-4Ve" secondAttribute="bottom" id="3EQ-wi-o28"/>
                             <constraint firstItem="3jg-FZ-D1w" firstAttribute="trailing" secondItem="ujZ-ev-88z" secondAttribute="trailing" id="IbA-cr-fdw"/>
                             <constraint firstItem="3jg-FZ-D1w" firstAttribute="top" secondItem="ujZ-ev-88z" secondAttribute="top" id="L3t-Nb-dxs"/>
+                            <constraint firstItem="1yG-9M-4Ve" firstAttribute="trailing" secondItem="ujZ-ev-88z" secondAttribute="trailing" id="Oo9-2y-uU7"/>
+                            <constraint firstItem="1yG-9M-4Ve" firstAttribute="top" secondItem="3jg-FZ-D1w" secondAttribute="bottom" id="SbB-os-fsn"/>
+                            <constraint firstItem="LwB-WN-Wlp" firstAttribute="leading" secondItem="ujZ-ev-88z" secondAttribute="leading" id="W8Q-1i-UIn"/>
+                            <constraint firstAttribute="bottom" secondItem="LwB-WN-Wlp" secondAttribute="bottom" id="eIJ-Kd-yRC"/>
+                            <constraint firstItem="LwB-WN-Wlp" firstAttribute="trailing" secondItem="ujZ-ev-88z" secondAttribute="trailing" id="k5V-Mq-j8u"/>
                             <constraint firstItem="3jg-FZ-D1w" firstAttribute="leading" secondItem="ujZ-ev-88z" secondAttribute="leading" id="nze-QY-0p3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="statusView" destination="1yG-9M-4Ve" id="4Qh-qF-yWT"/>
+                        <outlet property="statusViewHeightConstraint" destination="K8R-9T-pmA" id="fsh-7l-S2V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yt6-Zh-sif" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="869"/>
+            <point key="canvasLocation" x="-842.02898550724649" y="868.52678571428567"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="DxK-rS-dP4">

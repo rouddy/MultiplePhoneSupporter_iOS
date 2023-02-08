@@ -34,6 +34,28 @@ class DeviceNamesToConnectManager {
     }
 }
 
+class ConnectedDeviceManager {
+    private var devices = [PeripheralPhoneDevice]()
+    private let devicesRelay = PublishRelay<[PeripheralPhoneDevice]>()
+    
+    func getObservable() -> Observable<[PeripheralPhoneDevice]> {
+        return Observable.just(devices)
+            .concat(devicesRelay)
+    }
+    
+    func onDeviceConnected(peripheralPhoneDevice: PeripheralPhoneDevice) {
+        devices.append(peripheralPhoneDevice)
+        devicesRelay.accept(devices)
+    }
+    
+    func onDeviceDisconnected(peripheralPhoneDevice: PeripheralPhoneDevice) {
+        devices.removeAll { device in
+            device.getIdentifier() == peripheralPhoneDevice.getIdentifier()
+        }
+        devicesRelay.accept(devices)
+    }
+}
+
 class BluetoothService {
     
     private static let keyStoredDevice = "KeyStoredDevice"
@@ -44,6 +66,7 @@ class BluetoothService {
     private let connectDeviceRelay = PublishRelay<PeripheralPhoneDevice>()
     private let disconnectDeviceRelay = PublishRelay<PeripheralPhoneDevice>()
     private let deviceNamesToConnectManager: DeviceNamesToConnectManager!
+    private let connectedDeviceManager = ConnectedDeviceManager()
     
     private init() {
         deviceNamesToConnectManager = DeviceNamesToConnectManager(BluetoothService.getStoredDeviceNames())
@@ -57,6 +80,7 @@ class BluetoothService {
                     return connectDevice.connect()
                         .do(onCompleted: { [weak self] in
                             print("connect end:\(connectDevice.getName()):\(connectDevice.getIdentifier())")
+                            self?.connectedDeviceManager.onDeviceConnected(peripheralPhoneDevice: connectDevice)
                             if let deviceName = connectDevice.getName() {
                                 BluetoothService.storeDeviceName(deviceName: deviceName)
                             }
@@ -66,6 +90,9 @@ class BluetoothService {
                                 .take(until: this.disconnectDeviceRelay.filter({ disconnectDevice in
                                     connectDevice == disconnectDevice
                                 }))
+                                .do(onDispose: { [weak self] in
+                                    self?.connectedDeviceManager.onDeviceDisconnected(peripheralPhoneDevice: connectDevice)
+                                })
                         )
                         .concat(connectDevice.clearDevice())
                         .do(onCompleted: { [weak self] in
@@ -180,6 +207,10 @@ class BluetoothService {
     
     func disconnectDevice(device: PeripheralPhoneDevice) {
         disconnectDeviceRelay.accept(device)
+    }
+    
+    func getConnectedDeviceObservable() -> Observable<[PeripheralPhoneDevice]> {
+        return connectedDeviceManager.getObservable()
     }
     
     private func onNotifyData(_ packet: Packet) {
